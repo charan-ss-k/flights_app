@@ -1,0 +1,34 @@
+flight no: (airline 2-digits and random 4-integer number)
+operational status: (Operating, Not operating, Cancelled)
+stoa: (2025-05-22 16:10:00)(no two stoa and stod and stoa and stoa should be exactly same. May change in time with 60sec delay)
+stod: (2025-05-22 16:10:00)(no two stoa and stod and stod and stod should be exactly same. May change in time with 60sec delay)
+Flight Type:(ARR/DER)
+Flight Mode:(INT/ DOM)
+number of passenger: [International[max 250 min 150]  Domestic[Min-40 Max- 220]](also adjust passengers crowd according to places probality from data in web)
+etoa (2025-05-22 16:10:00)(no two etoa and etod and etoa and etoa should be exactly same. May change in time with 60sec delay)
+etod (2025-05-22 16:10:00)(no two etoa and etod and etod and etod should be exactly same. May change in time with 60sec delay)
+dep boarding gate no: (1-30 but After 20 (A,B)[eg: 20A,20B,21A,21B...30A,30B]) (101,102,103,...,120)
+arrival belt no: (11-24)
+psta: (1-80,201-220)(no two psta and pstd and psta and psta should be exactly same. May change in time with 60sec delay)
+pstd: (1-80,201-220)(no two psta and pstd and pstd and pstd should be exactly same. May change in time with 60sec delay)
+airline: (6E,IX.....)
+origin: (HYDERABAD origin for departures and locations around india and world for arrivals according to web most frequently)
+destination: (HYDERABAD for arrivals and locations around india and world for departures according to web most frequently)
+
+conditions:
+90% operating flights
+7% not operating flights
+3% cancelled
+
+daywise flights from 20th may 2025 till the flights in database cross 50000 flights
+flights condtions:
+550-620 flights in day
+80% of Domestic in daytime(both arrivals and departures)
+80% of international in nighttime(both arrivals and departures)
+
+table:
+60 coming and 30 past
+
+status:
+departed(past flights from present); boarding(40 mins from present); ontime or delayed; cancelled
+arrived; ontinme or delayed; cancelled

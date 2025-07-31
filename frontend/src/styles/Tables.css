@@ -1,0 +1,245 @@
+.table-container {
+  @apply p-5 w-full max-w-full box-border flex flex-col items-center overflow-visible relative overflow-x-hidden z-10;
+}
+
+.table-wrapper {
+  @apply relative overflow-x-auto p-0 bg-white rounded-[18px] shadow-lg max-w-full w-[90%] m-0 flex flex-col items-stretch;
+  box-shadow: 0 2px 16px 0 rgba(60,60,60,0.08);
+}
+
+.flights-table {
+  @apply w-full min-w-[1200px] border-collapse text-base bg-white rounded-[14px] overflow-hidden;
+  table-layout: fixed;
+}
+
+.flights-table thead tr th:first-child {
+  @apply rounded-tl-[14px];
+}
+.flights-table thead tr th:last-child {
+  @apply rounded-tr-[14px];
+}
+.flights-table tbody tr:last-child td:first-child {
+  @apply rounded-bl-[14px];
+}
+.flights-table tbody tr:last-child td:last-child {
+  @apply rounded-br-[14px];
+}
+
+.flights-table thead {
+  @apply sticky top-0 z-10;
+  background: linear-gradient(135deg, #475569, #64748b, #94a3b8);
+}
+
+.table-header {
+  @apply bg-transparent text-white px-6 py-3 text-center border-b-2 border-white/10 font-semibold whitespace-nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.table-row {
+  @apply transition-colors duration-500;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.table-row:nth-child(even) {
+  @apply bg-white;
+}
+
+.table-row:nth-child(odd) {
+  @apply bg-gray-50;
+}
+
+.table-row:hover {
+  @apply bg-gray-100;
+}
+
+.table-cell {
+  @apply bg-transparent text-slate-800 px-4 py-3 font-bold text-center border-b border-slate-200 whitespace-nowrap;
+}
+
+.table-row:hover .table-cell {
+  @apply bg-transparent;
+}
+
+.table-date-time {
+  @apply flex flex-col;
+}
+
+.table-no-data {
+  @apply relative overflow-visible text-center p-8 bg-slate-50 rounded-lg text-slate-500 text-base my-5 w-[70%];
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.flight-status-ontime {
+  @apply inline-block text-center min-w-20 px-3 py-1 rounded-full text-xs font-bold border-2;
+  background-color: rgba(0, 123, 255, 0.2);
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.flight-status-arrived,
+.flight-status-departed {
+  @apply inline-block text-center min-w-20 px-3 py-1 rounded-full text-xs font-bold border-2;
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.flight-status-delayed {
+  @apply inline-block text-center min-w-20 px-3 py-1 rounded-full text-xs font-bold border-2;
+  background-color: rgba(255, 193, 7, 0.2);
+  color: #856404;
+  border-color: #ffc107;
+}
+
+.flight-status-cancelled {
+  @apply inline-block text-center min-w-20 px-3 py-1 rounded-full text-xs font-bold border-2;
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.flight-status-boarding {
+  @apply inline-block text-center min-w-20 px-3 py-1 rounded-full text-xs font-bold border-2;
+  background-color: rgba(71, 68, 59, 0.219);
+  color: #3b3a35;
+  border-color: #3b3a35;
+}
+
+.flight-mode-international {
+  @apply text-orange-500 text-base font-black;
+}
+
+.flight-mode-domestic {
+  @apply text-blue-500 text-base font-black;
+}
+.table-navigation {
+  @apply flex justify-center my-6;
+}
+
+.table-nav-buttons {
+  @apply inline-flex items-center overflow-hidden py-2 px-4 rounded-[30px];
+  background-color: #fff6ec;
+}
+
+.nav-button {
+  @apply border-none bg-transparent text-gray-600 font-semibold text-lg px-4 py-2 cursor-pointer rounded-2xl transition-all duration-300 mx-1 min-w-11 flex justify-center items-center;
+  font-family: 'Courier New', monospace;
+}
+
+.nav-button:hover:not(:disabled) {
+  @apply text-gray-800;
+  background-color: rgba(239, 230, 220, 0.95);
+}
+
+.nav-button:active:not(:disabled) {
+  @apply text-white transform scale-95;
+  background-color: rgba(255, 188, 107, 0.95);
+}
+
+.nav-button:disabled {
+  @apply opacity-40 cursor-not-allowed;
+}
+.table-wrapper::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+.table-wrapper::after {
+  @apply absolute top-0 right-0 bottom-0 w-8 pointer-events-none opacity-0 transition-opacity duration-300 z-[5];
+  content: '';
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.7));
+}
+
+.table-wrapper.scrollable::after {
+  @apply opacity-100;
+}
+
+.flights-table th:nth-child(1), 
+.flights-table td:nth-child(1) { 
+  @apply w-[7%]; 
+}
+
+.flights-table th:nth-child(2), 
+.flights-table td:nth-child(2) { 
+  @apply w-[7%]; 
+}
+
+.flights-table th:nth-child(3), 
+.flights-table td:nth-child(3) { 
+  @apply w-[12%]; 
+}
+
+.flights-table th:nth-child(4), 
+.flights-table td:nth-child(4) { 
+  @apply w-[6%]; 
+}
+
+.flights-table th:nth-child(5), 
+.flights-table td:nth-child(5) { 
+  @apply w-[6%]; 
+}
+
+.flights-table th:nth-child(6), 
+.flights-table td:nth-child(6) { 
+  @apply w-[5%]; 
+}
+
+.flights-table th:nth-child(7), 
+.flights-table td:nth-child(7) { 
+  @apply w-[12%]; 
+}
+
+.flights-table th:nth-child(8), 
+.flights-table td:nth-child(8) { 
+  @apply w-[5%]; 
+}
+
+.flights-table th:nth-child(9), 
+.flights-table td:nth-child(9) { 
+  @apply w-[5%]; 
+}
+
+.flights-table th:nth-child(10), 
+.flights-table td:nth-child(10) { 
+  @apply w-[5%]; 
+}
+
+.flights-table th:nth-child(11), 
+.flights-table td:nth-child(11) { 
+  @apply w-[12%]; 
+}
+
+@media (max-width: 1200px) {
+  .table-wrapper,
+  .table-no-data {
+    @apply w-[85%];
+  }
+  
+  .flights-table {
+    @apply text-sm;
+  }
+  
+  .table-header,
+  .table-cell {
+    @apply px-3 py-2;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-wrapper,
+  .table-no-data {
+    @apply w-[95%];
+  }
+}

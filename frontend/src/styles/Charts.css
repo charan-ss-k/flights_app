@@ -1,0 +1,274 @@
+.dashboard-container {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f1f5f9;
+  position: relative;
+  overflow-x: hidden;
+  will-change: scroll-position;
+  contain: layout style paint;
+}
+
+.stats-container {
+  margin-bottom: 2rem;
+  contain: layout style paint;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  contain: layout;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transform: translateZ(0);
+  will-change: auto;
+  contain: layout style paint;
+  transform: translate3d(0, 0, 0);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.stat-card.blue .stat-icon {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1d4ed8;
+}
+
+.stat-card.pink .stat-icon {
+  background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+  color: #be185d;
+}
+
+.stat-card.cyan .stat-icon {
+  background: linear-gradient(135deg, #cffafe, #a5f3fc);
+  color: #0891b2;
+}
+
+.charts-container {
+  margin-top: 2rem;
+  contain: layout style;
+}
+
+.charts-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  contain: layout;
+}
+
+.chart-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  contain: layout;
+}
+
+.chart-row-full {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  contain: layout;
+}
+
+.chart-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  height: fit-content;
+  transform: translateZ(0);
+}
+
+.chart-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #f1f5f9;
+  background: #ffffff;
+}
+
+.chart-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.chart-description {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.chart-content {
+  padding: 1.5rem;
+  background: #ffffff;
+}
+
+* {
+  transition: none !important;
+  animation: none !important;
+}
+
+.stat-card:hover,
+.chart-card:hover {
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+@media (max-width: 1200px) {
+  .chart-row-two {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 400px;
+  }
+  
+  .charts-layout {
+    gap: 1.5rem;
+  }
+  
+  .chart-header {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .chart-content {
+    padding: 1rem;
+  }
+}
+
+.stat-card,
+.chart-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transform: translateZ(0);
+}
+
+.stat-card,
+.chart-card {
+  transition: none;
+}
+
+.tab-button {
+  transition: background-color 0.1s linear, color 0.1s linear;
+  will-change: background-color, color;
+  backface-visibility: hidden;
+}
+
+.tab-button {
+  transition: background-color 0.1s linear, color 0.1s linear !important;
+}
+
+.recharts-wrapper {
+  will-change: auto;
+  contain: layout;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  transition: none !important;
+}
+
+.recharts-bar,
+.recharts-line,
+.recharts-area {
+  transition: none !important;
+}
+
+.recharts-tooltip-wrapper {
+  transition: transform 0.05s linear !important;
+}
