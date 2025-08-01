@@ -21,4 +21,4 @@ def get_db_connection():
     )
 
 def get_db_engine():
-    return create_engine("mysql+pymysql://root:12345678@localhost/flights_db")
+    return create_engine("mysql+pymysql://root:12345678@192.168.0.202/flights_db")
