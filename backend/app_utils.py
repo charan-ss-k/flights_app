@@ -1,5 +1,8 @@
 import mysql.connector
 from sqlalchemy import create_engine
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
 
 USER_CREDENTIALS = {
     "admin": {
@@ -21,4 +24,8 @@ def get_db_connection():
     )
 
 def get_db_engine():
-    return create_engine("mysql+pymysql://root:12345678@192.168.0.202/flights_db")
+    return create_engine("mysql+pymysql://root:12345678@localhost/flights_db")
+
+@app.route('/api/arrivals')
+def get_arrivals():
+    date = request.args.get('date')
